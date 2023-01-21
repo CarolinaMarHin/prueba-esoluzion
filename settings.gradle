@@ -1,0 +1,5 @@
+rootProject.name = 'esoluzion'
+include 'infraestructura'
+include 'aplicacion'
+include 'dominio'
+
