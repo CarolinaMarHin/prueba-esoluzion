@@ -29,7 +29,10 @@ class ECommerceControllerTest {
         mocMvc.perform(get("/getFinalPrice/2020-06-14/10:00/35455/1")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
+                .andExpect(jsonPath("product_id", is(35455)))
+                .andExpect(jsonPath("brand_id", is(1)))
                 .andExpect(jsonPath("price", is(35.5)))
+                .andExpect(jsonPath("dateApplication", is("2020-06-14T15:00:00.000+00:00")))
                 .andExpect(jsonPath("price_list", is(1)));
     }
 
@@ -39,7 +42,10 @@ class ECommerceControllerTest {
         mocMvc.perform(get("/getFinalPrice/2020-06-14/16:00/35455/1")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
+                .andExpect(jsonPath("product_id", is(35455)))
+                .andExpect(jsonPath("brand_id", is(1)))
                 .andExpect(jsonPath("price", is(25.45)))
+                .andExpect(jsonPath("dateApplication", is("2020-06-14T21:00:00.000+00:00")))
                 .andExpect(jsonPath("price_list", is(2)));
     }
 
@@ -49,7 +55,10 @@ class ECommerceControllerTest {
         mocMvc.perform(get("/getFinalPrice/2020-06-14/21:00/35455/1")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
+                .andExpect(jsonPath("product_id", is(35455)))
+                .andExpect(jsonPath("brand_id", is(1)))
                 .andExpect(jsonPath("price", is(35.50)))
+                .andExpect(jsonPath("dateApplication", is("2020-06-15T02:00:00.000+00:00")))
                 .andExpect(jsonPath("price_list", is(1)));
     }
 
@@ -59,8 +68,11 @@ class ECommerceControllerTest {
         mocMvc.perform(get("/getFinalPrice/2020-06-15/10:00/35455/1")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("price", is(30.5)))
-                .andExpect(jsonPath("price_list", is(3)));
+                .andExpect(jsonPath("product_id", is(35455)))
+                .andExpect(jsonPath("brand_id", is(1)))
+                .andExpect(jsonPath("price_list", is(3)))
+                .andExpect(jsonPath("dateApplication", is("2020-06-15T15:00:00.000+00:00")))
+                .andExpect(jsonPath("price", is(30.5)));
     }
 
     @Test
@@ -69,7 +81,10 @@ class ECommerceControllerTest {
         mocMvc.perform(get("/getFinalPrice/2020-06-16/21:00/35455/1")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
+                .andExpect(jsonPath("product_id", is(35455)))
+                .andExpect(jsonPath("brand_id", is(1)))
                 .andExpect(jsonPath("price", is(38.95)))
+                .andExpect(jsonPath("dateApplication", is("2020-06-17T02:00:00.000+00:00")))
                 .andExpect(jsonPath("price_list", is(4)));
     }
 }
