@@ -3,6 +3,7 @@ package com.example.ecommerce.adaptador.daosql;
 import com.example.ecommerce.adaptador.dao.PricesMapper;
 import com.example.modelo.dao.PricesDao;
 import com.example.modelo.model.PricesDto;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -23,8 +24,12 @@ public class PricesDaoSql implements PricesDao {
                 "AND START_DATE<= :dateApplication " +
                 "AND END_DATE >= :dateApplication " +
                 "ORDER BY PRIORITY DESC LIMIT 1";
+        MapSqlParameterSource paramSource = new MapSqlParameterSource();
+        paramSource.addValue("dateApplication", dateApplication);
+        paramSource.addValue("product_id", product_id);
+        paramSource.addValue("brand_id", brand_id);
 
-        PricesDto pricesDto = namedParameterJdbcTemplate.query(sqlQuery, new PricesMapper()).get(0);
+        PricesDto pricesDto = namedParameterJdbcTemplate.query(sqlQuery, paramSource, new PricesMapper()).get(0);
         //pricesDto.get(0).setDateApplication(dateApplication);
 
         return pricesDto;

@@ -17,13 +17,4 @@ public class PricesDto {
     private Date dateApplication;
     private int price_list;
 
-    /*private int brand_id;
-    private Date start_date;
-    private Date end_date;
-    private int price_list;
-    private int product_id;
-    private int priority;
-    private boolean price;
-    private String curr;*/
-
 }
