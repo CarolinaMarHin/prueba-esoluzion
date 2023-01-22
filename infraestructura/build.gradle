@@ -16,8 +16,14 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test:2.5.3'
     implementation 'org.springframework.boot:spring-boot-starter-test:2.5.3'
 
+    implementation 'org.springframework.boot:spring-boot-starter-web:2.5.3'
+    implementation 'org.springframework.boot:spring-boot-devtools:2.5.3'
+
     implementation 'org.springframework.boot:spring-boot-starter-jdbc:2.5.3'
     testImplementation 'org.flywaydb.flyway-test-extensions:flyway-spring-test:5.2.1'
+
+    implementation project(':dominio')
+    implementation project(':aplicacion')
 }
 
 test {
