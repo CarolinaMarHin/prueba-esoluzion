@@ -30,7 +30,7 @@ public class PricesDaoSql implements PricesDao {
         paramSource.addValue("brand_id", brand_id);
 
         PricesDto pricesDto = namedParameterJdbcTemplate.query(sqlQuery, paramSource, new PricesMapper()).get(0);
-        //pricesDto.get(0).setDateApplication(dateApplication);
+        pricesDto.setDateApplication(dateApplication);
 
         return pricesDto;
     }
