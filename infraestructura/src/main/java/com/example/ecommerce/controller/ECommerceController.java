@@ -24,12 +24,7 @@ public class ECommerceController {
     public PricesDto getFinalPrice(@PathVariable(name = "dateApplication") String dateApplication,
                                    @PathVariable(name = "timeApplication") String timeApplication, @PathVariable(name = "product_id") int product_id,
                                    @PathVariable(name = "brand_id") int brand_id) throws ParseException {
-
-        String dateTimeApplicacion = dateApplication.concat(" ").concat(timeApplication);
-
-        DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-        Date dateApp = new Date(formatter.parse(dateTimeApplicacion).getTime());
-        return this.pricesUseCase.getPriceProduct(dateApp, product_id, brand_id);
+        return this.pricesUseCase.getPriceProduct(dateApplication, timeApplication, product_id, brand_id);
     }
 
 }
